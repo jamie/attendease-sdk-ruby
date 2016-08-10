@@ -1,0 +1,5 @@
+---
+attendease_sdk:
+  user_token:
+    production: "e636b04d-4e3a-4322-a6fe-75bd59ff360f"
+    preview: "cc27c945-c1bc-4a15-87c5-d601f6f68147"
