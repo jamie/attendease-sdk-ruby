@@ -32,6 +32,8 @@ module AttendeaseSDK
         else
           puts "Error: Could not set AttendeaseSDK.event_id"
         end
+      else
+        @event_subdomain = value
       end
     end
 
