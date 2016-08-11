@@ -5,13 +5,13 @@ require 'attendease_sdk/version'
 
 Gem::Specification.new do |spec|
   spec.name          = "attendease_sdk"
-  spec.version       = AttendeaseSdk::VERSION
+  spec.version       = AttendeaseSDK::VERSION
   spec.authors       = ["Brandon"]
   spec.email         = ["brandon@attendease.com"]
 
-  spec.summary       = %q{TODO: Write a short summary, because Rubygems requires one.}
-  spec.description   = %q{TODO: Write a longer description or delete this line.}
-  spec.homepage      = "TODO: Put your gem's website or public repo URL here."
+  spec.summary       = "AttendeaseSDK for Ruby"
+  spec.description   = "A Ruby wrapper for the Attendease API"
+  spec.homepage      = ""
 
   # Prevent pushing this gem to RubyGems.org by setting 'allowed_push_host', or
   # delete this section to allow pushing this gem to any host.
@@ -25,10 +25,13 @@ Gem::Specification.new do |spec|
   spec.bindir        = "exe"
   spec.executables   = spec.files.grep(%r{^exe/}) { |f| File.basename(f) }
   spec.require_paths = ["lib"]
+  spec.require_paths = Dir["lib/**/*.rb"]
 
   spec.add_development_dependency "bundler", "~> 1.10"
   spec.add_development_dependency "rake", "~> 10.0"
-  spec.add_development_dependency "rspec"
-  spec.add_development_dependency "httparty", "~> 0.13.7"
+  spec.add_development_dependency "rspec", "~> 2.12"
   spec.add_development_dependency "pry"
+
+  spec.add_dependency "httparty", "~> 0.13.7"
+  spec.add_dependency "activesupport", "~> 3.2.22.2"
 end

@@ -38,7 +38,7 @@ module AttendeaseSDK
 
     def self.create(attendee_hash)
       # POST /api/attendees(.:format)
-      response = HTTParty.post("#{AttendeaseSDK.event_base_url}" + "api/events/attendees.json", :headers => AttendeaseSDK.event_headers, :body => attendee_hash.to_json)
+      response = HTTParty.post("#{AttendeaseSDK.event_base_url}" + "attendees.json", :headers => AttendeaseSDK.event_headers, :body => attendee_hash.to_json)
 
       case response.code
       when 201

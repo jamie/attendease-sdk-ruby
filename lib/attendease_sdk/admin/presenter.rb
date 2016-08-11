@@ -1,4 +1,3 @@
-
 module AttendeaseSDK
   ### Presenter
   class Presenter

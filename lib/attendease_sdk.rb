@@ -1,5 +1,7 @@
 $:.unshift File.dirname(__FILE__)
-require "attendease_sdk/version"
+require 'pry'
+require 'active_support/all'
+require 'attendease_sdk/version'
 require 'attendease_sdk/admin/attendease_sdk_admin'
 require 'attendease_sdk/organization/attendease_sdk_organization'
 require 'attendease_sdk/event/attendease_sdk_event'
@@ -13,7 +15,7 @@ module AttendeaseSDK
     attr_accessor :user_token, :event_token, :event_id, :environment, :event_subdomain, :subdomain
 
     def event_subdomain=(value)
-      if value.present?
+      if value.present? && self.event_id.blank?
         begin
           @event_subdomain = value
           event_properties = AttendeaseSDK::Event.subdomain
