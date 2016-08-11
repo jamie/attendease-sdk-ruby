@@ -4,8 +4,8 @@ module AttendeaseSDK
     class << self
 
       def set_config
-        data_path = Rails.root.join('lib','tasks','lib','client_integration','attendease_sdk')
-        configuration = YAML::load_file(File.join(data_path, 'configuration.yml'))
+        
+        configuration = YAML::load_file(File.dirname(__FILE__) + "/configuration.yml")
 
         AttendeaseSDK.environment = Rails.env
 
