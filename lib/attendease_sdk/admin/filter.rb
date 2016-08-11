@@ -15,7 +15,7 @@ module AttendeaseSDK
 
       case response.code
       when 200
-        Filter.new(response.parsed_response)
+        response.parsed_response
       when 422
         raise DomainError.new(response.parsed_response['errors'].to_a.map{|error| "#{error[0]} #{error[1].join(",") }"}.join(", "))
       else

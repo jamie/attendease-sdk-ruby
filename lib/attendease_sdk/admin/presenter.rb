@@ -12,7 +12,7 @@ module AttendeaseSDK
       response = HTTParty.get("#{AttendeaseSDK.admin_base_url}" + "api/events/" + "#{AttendeaseSDK.event_id}/presenters/#{presenter_id}.json", :headers => AttendeaseSDK.admin_headers)
       case response.code
       when 200
-        Presenter.new(response.parsed_response)
+        response.parsed_response
       when 422
         raise DomainError.new(response.parsed_response['errors'].to_a.map{|error| "#{error[0]} #{error[1].join(",") }"}.join(", "))
       else
@@ -36,7 +36,7 @@ module AttendeaseSDK
       response = HTTParty.post("#{AttendeaseSDK.admin_base_url}" + "api/events/" + "#{AttendeaseSDK.event_id}/presenters.json", :headers => AttendeaseSDK.admin_headers, :body => presenter_hash.to_json)
       case response.code
       when 201
-        Presenter.new(response.parsed_response)
+        response.parsed_response
       when 422
         raise DomainError.new(response.parsed_response['errors'].to_a.map{|error| "#{error[0]} #{error[1].join(",") }"}.join(", "))
       else
@@ -48,7 +48,7 @@ module AttendeaseSDK
       response = HTTParty.put("#{AttendeaseSDK.admin_base_url}" + "api/events/" + "#{AttendeaseSDK.event_id}/presenters/#{presenter_hash['id']}.json", :headers => AttendeaseSDK.admin_headers, :body => presenter_hash.to_json)
       case response.code
       when 204
-        Presenter.new(presenter_hash)
+        presenter_hash
       when 422
         raise DomainError.new(response.parsed_response['errors'].to_a.map{|error| "#{error[0]} #{error[1].join(",") }"}.join(", "))
       else

@@ -13,7 +13,7 @@ module AttendeaseSDK
 
       case response.code
       when 200
-        Instance.new(response.parsed_response)
+        response.parsed_response
       when 422
         raise DomainError.new(response.parsed_response['errors'].to_a.map{|error| "#{error[0]} #{error[1].join(",") }"}.join(", "))
       else
@@ -41,7 +41,7 @@ module AttendeaseSDK
 
       case response.code
       when 201
-        Instance.new(response.parsed_response)
+        response.parsed_response
       when 422
         raise DomainError.new(response.parsed_response['errors'].to_a.map{|error| "#{error[0]} #{error[1].join(",") }"}.join(", "))
       else
@@ -55,7 +55,7 @@ module AttendeaseSDK
 
       case response.code
       when 204
-        Instance.new(instance_hash)
+        instance_hash
       when 422
         raise DomainError.new(response.parsed_response['errors'].to_a.map{|error| "#{error[0]} #{error[1].join(",") }"}.join(", "))
       else
@@ -70,7 +70,7 @@ module AttendeaseSDK
 
       case response.code
       when 204
-        Instance.new(instance_hash)
+        instance_hash
       when 422
         raise DomainError.new(response.parsed_response['errors'].to_a.map{|error| "#{error[0]} #{error[1].join(",") }"}.join(", "))
       else

@@ -14,7 +14,7 @@ module AttendeaseSDK
 
       case response.code
       when 200
-        Sponsor.new(response.parsed_response)
+        response.parsed_response
       when 422
         raise DomainError.new(response.parsed_response['errors'].to_a.map{|error| "#{error[0]} #{error[1].join(",") }"}.join(", "))
       else
@@ -42,7 +42,7 @@ module AttendeaseSDK
 
       case response.code
       when 201
-        Sponsor.new(response.parsed_response)
+        response.parsed_response
       when 422
         raise DomainError.new(response.parsed_response['errors'].to_a.map{|error| "#{error[0]} #{error[1].join(",") }"}.join(", "))
       else
@@ -56,7 +56,7 @@ module AttendeaseSDK
 
       case response.code
       when 204
-        Sponsor.new(sponsor_hash)
+        sponsor_hash
       when 422
         raise DomainError.new(response.parsed_response['errors'].to_a.map{|error| "#{error[0]} #{error[1].join(",") }"}.join(", "))
       else

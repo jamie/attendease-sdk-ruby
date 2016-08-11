@@ -5,7 +5,6 @@ require 'attendease_sdk/version'
 require 'attendease_sdk/admin/attendease_sdk_admin'
 require 'attendease_sdk/organization/attendease_sdk_organization'
 require 'attendease_sdk/event/attendease_sdk_event'
-require 'attendease_sdk/configuration'
 require 'httparty'
 
 module AttendeaseSDK
