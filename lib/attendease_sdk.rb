@@ -14,25 +14,27 @@ module AttendeaseSDK
     attr_accessor :user_token, :event_token, :event_id, :environment, :event_subdomain, :subdomain
 
     def event_subdomain=(value)
-      if value.present? && self.event_id.blank?
-        begin
-          @event_subdomain = value
-          event_properties = AttendeaseSDK::Event.subdomain
-          puts "Fetched properties for Event: #{event_properties['name']} - #{event_properties['id']}"
-        rescue AttendeaseSDK::ConnectionError => e
-          puts "Error Properties for subdomain: #{@event_subdomain} failed to be retrieved - reason: #{e.message}"
-        rescue AttendeaseSDK::DomainError => e
-          puts "Error Properties subdomain: #{@event_subdomain} failed to be retrieved - reason: #{e.message}"
-        end
+      @event_subdomain = value
+      if event_id.blank?
+        set_event_id
+      end
+    end
 
-        if event_properties.present?
-          @event_id = event_properties['id']
-          puts "Setting AttendeaseSDK.event_id as #{@event_id}"
-        else
-          puts "Error: Could not set AttendeaseSDK.event_id"
-        end
+    def set_event_id
+      begin
+        event_properties = AttendeaseSDK::Event.subdomain
+        puts "Fetched properties for Event: #{event_properties['name']} - #{event_properties['id']}"
+      rescue AttendeaseSDK::ConnectionError => e
+        puts "Error Properties for subdomain: #{@event_subdomain} failed to be retrieved - reason: #{e.message}"
+      rescue AttendeaseSDK::DomainError => e
+        puts "Error Properties subdomain: #{@event_subdomain} failed to be retrieved - reason: #{e.message}"
+      end
+
+      if event_properties.present?
+        @event_id = event_properties['id']
+        puts "Setting AttendeaseSDK.event_id as #{@event_id}"
       else
-        @event_subdomain = value
+        puts "Error: Could not set AttendeaseSDK.event_id"
       end
     end
 
