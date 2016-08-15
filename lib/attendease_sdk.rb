@@ -1,5 +1,4 @@
 $:.unshift File.dirname(__FILE__)
-require 'pry'
 require 'active_support/all'
 require 'attendease_sdk/version'
 require 'attendease_sdk/admin/attendease_sdk_admin'
