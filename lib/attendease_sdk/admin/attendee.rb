@@ -67,7 +67,7 @@ module AttendeaseSDK
       # POST /api/events/:event_id/attendees/:id/cancel(.:format)
       response = HTTParty.post("#{AttendeaseSDK.admin_base_url}" + "api/events/" + "#{AttendeaseSDK.event_id}/attendees/#{attendee_id}/cancel.json", :headers => AttendeaseSDK.admin_headers)
       case response.code
-      when 204
+      when 200
         response.parsed_response
       when 422
         raise DomainError.new(response.parsed_response['errors'].to_a.map{|error| "#{error[0]} #{error[1].join(",") }"}.join(", "))
