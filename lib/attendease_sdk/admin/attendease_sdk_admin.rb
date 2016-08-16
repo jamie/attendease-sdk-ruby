@@ -1,5 +1,5 @@
 $:.unshift File.dirname(__FILE__)
-
+require          'active_support/all'
 require_relative 'presenter'
 require_relative 'sponsor_level'
 require_relative 'sponsor'

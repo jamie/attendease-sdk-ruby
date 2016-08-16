@@ -40,7 +40,7 @@ module AttendeaseSDK
 
       case response.code
       when 204
-        Note.new(note_hash)
+        note_hash
       when 422
         raise DomainError.new(response.parsed_response['errors'].to_a.map{|error| "#{error[0]} #{error[1].join(",") }"}.join(", "))
       else

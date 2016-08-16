@@ -27,7 +27,7 @@ module AttendeaseSDK
     def self.list(options = {})
       if options['instances'] == true
         # GET /api/sessions(.:format)
-        response = HTTParty.get("#{AttendeaseSDK.event_base_url}" + "/sessions.json?meta=true", :headers => AttendeaseSDK.event_headers)
+        response = HTTParty.get("#{AttendeaseSDK.event_base_url}" + "sessions.json?meta=true", :headers => AttendeaseSDK.event_headers)
       else
         # GET /api/events/:event_id/sessions(.:format)
         response = HTTParty.get("#{AttendeaseSDK.admin_base_url}" + "api/events/" + "#{AttendeaseSDK.event_id}/sessions.json", :headers => AttendeaseSDK.admin_headers)

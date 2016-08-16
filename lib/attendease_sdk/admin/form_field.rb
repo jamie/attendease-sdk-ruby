@@ -6,7 +6,6 @@ module AttendeaseSDK
     end
 
     def self.list(organization_id, options = {})
-      "https://dashboard.beta.attendease.com/api/organizations/"
       response = HTTParty.get("#{AttendeaseSDK.admin_base_url}" + "api/organizations/" + "#{organization_id}" + "/form_fields.json", :headers => AttendeaseSDK.admin_headers)
       case response.code
       when 200

@@ -7,7 +7,7 @@ module AttendeaseSDK
 
       def self.retrieve
         # /api/events/:event_id/content_groups/:section(.:format)
-        response = HTTParty.get("#{AttendeaseSDK.event_base_url}" + "event")
+        response = HTTParty.get("#{AttendeaseSDK.event_base_url}" + "event.json")
         case response.code
         when 200
           # Attendee.new(response.parsed_response)

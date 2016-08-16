@@ -13,7 +13,7 @@ module AttendeaseSDK
       response = HTTParty.get("#{AttendeaseSDK.admin_base_url}" + "api/events/" + "#{AttendeaseSDK.event_id}/sponsors/#{sponsor_level_id}.json", :headers => AttendeaseSDK.admin_headers)
       case response.code
       when 200
-        SponsorLevel.new(response.parsed_response)
+        response.parsed_response
       when 422
         raise DomainError.new(response.parsed_response['errors'].to_a.map{|error| "#{error[0]} #{error[1].join(",") }"}.join(", "))
       else
@@ -39,7 +39,7 @@ module AttendeaseSDK
       response = HTTParty.post("#{AttendeaseSDK.admin_base_url}" + "api/events/" + "#{AttendeaseSDK.event_id}/sponsor_levels.json", :headers => AttendeaseSDK.admin_headers, :body => sponsor_level_hash.to_json)
       case response.code
       when 201
-        SponsorLevel.new(response.parsed_response)
+        response.parsed_response
       when 422
         raise DomainError.new(response.parsed_response['errors'].to_a.map{|error| "#{error[0]} #{error[1].join(",") }"}.join(", "))
       else
@@ -52,7 +52,7 @@ module AttendeaseSDK
       response = HTTParty.put("#{AttendeaseSDK.admin_base_url}" + "api/events/" + "#{AttendeaseSDK.event_id}/sponsor_levels/#{sponsor_level_hash['id']}.json", :headers => AttendeaseSDK.admin_headers, :body => sponsor_level_hash.to_json)
       case response.code
       when 204
-        SponsorLevel.new(sponsor_level_hash)
+        sponsor_level_hash
       when 422
         raise DomainError.new(response.parsed_response['errors'].to_a.map{|error| "#{error[0]} #{error[1].join(",") }"}.join(", "))
       else
