@@ -11,7 +11,7 @@ Gem::Specification.new do |spec|
 
   spec.summary       = "AttendeaseSDK for Ruby"
   spec.description   = "A Ruby wrapper for the Attendease API"
-  spec.homepage      = ""
+  spec.homepage      = "https://github.com/attendease/attendease-sdk-ruby"
 
   # Prevent pushing this gem to RubyGems.org by setting 'allowed_push_host', or
   # delete this section to allow pushing this gem to any host.
