@@ -10,8 +10,8 @@ module AttendeaseSDK
     end
 
     def self.retrieve(filter_id)
-      # GET /api/events/:event_id/filters/:id(.:format)
-      response = HTTParty.get("#{AttendeaseSDK.admin_base_url}" + "api/events/" + "#{AttendeaseSDK.event_id}/filters/#{filter_id}.json", :headers => AttendeaseSDK.admin_headers)
+      # GET /api/events/:event_id/filter_groups/:id(.:format)
+      response = HTTParty.get("#{AttendeaseSDK.admin_base_url}" + "api/events/" + "#{AttendeaseSDK.event_id}/filter_groups/#{filter_id}.json", :headers => AttendeaseSDK.admin_headers)
 
       case response.code
       when 200
@@ -25,7 +25,7 @@ module AttendeaseSDK
 
     def self.list
       # GET /api/events/:event_id/filters(.:format)
-      response = HTTParty.get("#{AttendeaseSDK.admin_base_url}" + "api/events/" + "#{AttendeaseSDK.event_id}/filters.json", :headers => AttendeaseSDK.admin_headers)
+      response = HTTParty.get("#{AttendeaseSDK.admin_base_url}" + "api/events/" + "#{AttendeaseSDK.event_id}/filter_groups.json", :headers => AttendeaseSDK.admin_headers)
 
       case response.code
       when 200
@@ -39,7 +39,7 @@ module AttendeaseSDK
 
     def self.create(filter_hash)
       # POST /api/events/:event_id/filters(.:format)
-      response = HTTParty.post("#{AttendeaseSDK.admin_base_url}" + "api/events/" + "#{AttendeaseSDK.event_id}/filters.json", :headers => AttendeaseSDK.admin_headers, :body => filter_hash.to_json)
+      response = HTTParty.post("#{AttendeaseSDK.admin_base_url}" + "api/events/" + "#{AttendeaseSDK.event_id}/filter_groups.json", :headers => AttendeaseSDK.admin_headers, :body => filter_hash.to_json)
 
       case response.code
       when 201
@@ -52,8 +52,8 @@ module AttendeaseSDK
     end
 
     def self.update(filter_hash)
-      # PUT /api/events/:event_id/filters/:id(.:format)
-      response = HTTParty.put("#{AttendeaseSDK.admin_base_url}" + "api/events/" + "#{AttendeaseSDK.event_id}/filters/#{filter_hash['id']}.json", :headers => AttendeaseSDK.admin_headers, :body => filter_hash.to_json)
+      # PUT /api/events/:event_id/filter_groups/:id(.:format)
+      response = HTTParty.put("#{AttendeaseSDK.admin_base_url}" + "api/events/" + "#{AttendeaseSDK.event_id}/filter_groups/#{filter_hash['id']}.json", :headers => AttendeaseSDK.admin_headers, :body => filter_hash.to_json)
 
       case response.code
       when 204
@@ -66,8 +66,8 @@ module AttendeaseSDK
     end
 
     def self.destroy(filter_id)
-      # DELETE /api/events/:event_id/filters/:id(.:format)
-      response = HTTParty.delete("#{AttendeaseSDK.admin_base_url}" + "api/events/" + "#{AttendeaseSDK.event_id}/filters/#{filter_id}.json", :headers => AttendeaseSDK.admin_headers)
+      # DELETE /api/events/:event_id/filter_groups/:id(.:format)
+      response = HTTParty.delete("#{AttendeaseSDK.admin_base_url}" + "api/events/" + "#{AttendeaseSDK.event_id}/filter_groups/#{filter_id}.json", :headers => AttendeaseSDK.admin_headers)
 
       case response.code
       when 204
