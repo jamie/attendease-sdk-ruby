@@ -57,6 +57,8 @@ module AttendeaseSDK
         "https://dashboard.beta.attendease.com/"
       when 'preview'
         "https://dashboard.preview.attendease.com/"
+      when 'prerelease'
+        "https://dashboard.preview.attendease.com/"
       when 'development'
         "https://dashboard.localhost.attendease.com/"
       when 'production'
@@ -71,6 +73,8 @@ module AttendeaseSDK
       when 'staging'
         "https://#{AttendeaseSDK.event_subdomain}.beta.attendease.com/api/"
       when 'preview'
+        "https://#{AttendeaseSDK.event_subdomain}.preview.attendease.com/api/"
+      when 'prerelease'
         "https://#{AttendeaseSDK.event_subdomain}.preview.attendease.com/api/"
       when 'development'
         "https://#{AttendeaseSDK.event_subdomain}.localhost.attendease.com/api/"
@@ -87,6 +91,8 @@ module AttendeaseSDK
       when 'staging'
         "https://#{AttendeaseSDK.subdomain}.beta.attendease.org/api/"
       when 'preview'
+        "https://#{AttendeaseSDK.subdomain}.preview.attendease.org/api/"
+      when 'prerelease'
         "https://#{AttendeaseSDK.subdomain}.preview.attendease.org/api/"
       when 'development'
         "https://#{AttendeaseSDK.subdomain}.localhost.attendease.org/api/"
