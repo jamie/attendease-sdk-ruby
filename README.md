@@ -1,8 +1,6 @@
 # AttendeaseSDK
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/attendease_sdk`. To experiment with that code, run `bin/console` for an interactive prompt.
-
-TODO: Delete this and the text above, and describe your gem
+Put your Ruby code in the file `lib/attendease_sdk`.
 
 ## Installation
 
@@ -16,13 +14,13 @@ And then execute:
 
     $ bundle
 
-Or install it yourself as:
+You need to install the SDK via the Gemfile that references the SDK's Github repo:
+    $ gem 'attendease_sdk', :git => 'git@attendease-sdk-ruby.github.com:attendease/attendease-sdk-ruby.git', :ref => '617f7dedfc5a72d2921ee4501ea84bcb9e31c8b4'
 
-    $ gem install attendease_sdk
+    (where ref is the SHA of the commit to reference)
 
-## Usage
+NOTE: the `client-integration` project relies on the Gemfile from the `Attendease` project.
 
-TODO: Write usage instructions here
 
 ## Development
 
