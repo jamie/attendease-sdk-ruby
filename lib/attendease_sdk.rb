@@ -53,53 +53,41 @@ module AttendeaseSDK
 
     def admin_base_url
       case environment
-      when 'staging'
-        "https://dashboard.beta.attendease.com/"
       when 'preview'
-        "https://dashboard.preview.attendease.com/"
+        "https://dashboard.ci.attendease.com/"
       when 'prerelease'
         "https://dashboard.preview.attendease.com/"
       when 'development'
         "https://dashboard.localhost.attendease.com/"
       when 'production'
-        "https://dashboard.attendease.com/"
-      when 'migration'
-        "https://dashboard.mt.attendease.com/"
+        "https://dashboard.attendease.com/"    
       end
     end
 
     def event_base_url
       case environment
-      when 'staging'
-        "https://#{AttendeaseSDK.event_subdomain}.beta.attendease.com/api/"
       when 'preview'
-        "https://#{AttendeaseSDK.event_subdomain}.preview.attendease.com/api/"
+        "https://#{AttendeaseSDK.event_subdomain}.ci.attendease.com/api/"
       when 'prerelease'
         "https://#{AttendeaseSDK.event_subdomain}.preview.attendease.com/api/"
       when 'development'
         "https://#{AttendeaseSDK.event_subdomain}.localhost.attendease.com/api/"
       when 'production'
         "https://#{AttendeaseSDK.event_subdomain}.attendease.com/api/"
-      when 'migration'
-        "https://#{AttendeaseSDK.event_subdomain}.mt.attendease.com/api/"
       end
     end
 
 
     def organization_base_url
       case environment
-      when 'staging'
-        "https://#{AttendeaseSDK.subdomain}.beta.attendease.org/api/"
       when 'preview'
-        "https://#{AttendeaseSDK.subdomain}.preview.attendease.org/api/"
+        "https://#{AttendeaseSDK.subdomain}.ci.attendease.org/api/"
       when 'prerelease'
         "https://#{AttendeaseSDK.subdomain}.preview.attendease.org/api/"
       when 'development'
         "https://#{AttendeaseSDK.subdomain}.localhost.attendease.org/api/"
       when 'production'
         "https://#{AttendeaseSDK.subdomain}.attendease.org/api/"
-      when 'migration'
-        "https://#{AttendeaseSDK.subdomain}.mt.attendease.com/api/"
       end
     end
 
