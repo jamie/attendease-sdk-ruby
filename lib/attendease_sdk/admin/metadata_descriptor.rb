@@ -18,7 +18,8 @@ module AttendeaseSDK
     end
 
     def self.create(organization_id, descriptors_hash)
-      response = HTTParty.post("#{AttendeaseSDK.admin_base_url}" + "api/organizations/" + "#{organization_id}" + "/metadata_descriptors.json?metadata_descriptor=#{descriptors_hash}", :headers => AttendeaseSDK.admin_headers, :body => descriptors_hash.to_json)
+      descriptors_hash = {metadata_descriptor: descriptors_hash}
+      response = HTTParty.post("#{AttendeaseSDK.admin_base_url}" + "api/organizations/" + "#{organization_id}" + "/metadata_descriptors.json", :headers => AttendeaseSDK.admin_headers, :body => descriptors_hash.to_json)
       case response.code
       when 201
         response.parsed_response
