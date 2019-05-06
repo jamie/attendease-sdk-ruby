@@ -32,5 +32,5 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency "pry"
 
   spec.add_dependency "httparty", "~> 0.13.7"
-  spec.add_dependency "activesupport", "~> 3.2.22.2"
+  spec.add_dependency "activesupport", "< 4.1"
 end
