@@ -1,6 +1,6 @@
 $:.unshift File.dirname(__FILE__)
 require 'spec_helper'
-require '../attendease_sdk/lib/attendease_sdk'
+require 'attendease_sdk'
 
 describe AttendeaseSDK::Presenter do
 
